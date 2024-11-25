@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #2ecc71; /* Green */
+    --secondary-color: #3498db; /* Blue */
+    --accent-color: #e74c3c; /* Red */
+    --background-color: #ecf0f1; /* Light gray */
+    --text-color: #34495e; /* Dark blue */
+    --white: #ffffff;
+    --icon-blue: #3498db;
+    --icon-green: #2ecc71;
+    --icon-red: #e74c3c;
+    --icon-yellow: #f1c40f;
+    --icon-purple: #9b59b6;
+    --icon-orange: #e67e22;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Loading screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5; /* Whitish grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.25s ease-out, visibility 0.25s ease-out; /* 1/4 second transition */
+}
+
+.loader {
+    border: 3px solid #e0e0e0;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.75s linear infinite; /* Slightly slower spin */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Expanded header */
+header.expanded {
+    background-color: rgba(46, 204, 113, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header.expanded nav {
+    padding: 15px 0;
+}
+
+header.expanded .logo {
+    font-size: 1.8rem;
+}
+
+header.expanded nav ul li a {
+    font-size: 1.1rem;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 120px 0 80px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Content section */
+.content {
+    padding: 60px 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card i {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.card h2, .card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.card p, .card ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+}
+
+.card ul li i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.card:nth-child(6n+1) i { color: var(--icon-blue); }
+.card:nth-child(6n+2) i { color: var(--icon-green); }
+.card:nth-child(6n+3) i { color: var(--icon-red); }
+.card:nth-child(6n+4) i { color: var(--icon-yellow); }
+.card:nth-child(6n+5) i { color: var(--icon-purple); }
+.card:nth-child(6n) i { color: var(--icon-orange); }
+
+/* Remove or comment out this section to prevent icon color change on hover */
+/*
+.card:hover i {
+    color: var(--primary-color);
+}
+*/
+
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* Add these styles for the hero section gradient and index page cards */
+.topics {
+    padding: 60px 0;
+}
+
+.topics .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.topics .card a.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.topics .card a.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Add these styles to your existing CSS file */
+
+.featured-content {
+    background-color: var(--background-color);
+    padding: 60px 0;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.featured-item {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.featured-item:hover {
+    transform: translateY(-5px);
+}
+
+.featured-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.featured-item h3 {
+    padding: 20px 20px 10px;
+    color: var(--primary-color);
+}
+
+.featured-item p {
+    padding: 0 20px 20px;
+}
+
+.mission {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.mission p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.stats {
+    padding: 60px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item i {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.stats-grid .stat-item:nth-child(4n+1) i { color: var(--icon-blue); }
+.stats-grid .stat-item:nth-child(4n+2) i { color: var(--icon-green); }
+.stats-grid .stat-item:nth-child(4n+3) i { color: var(--icon-red); }
+.stats-grid .stat-item:nth-child(4n) i { color: var(--icon-yellow); }
+
+.icon-red {
+    color: var(--accent-color); /* Change to red */
+}
+
+.icon-green {
+    color: var(--icon-green); /* Change to green */
+}
