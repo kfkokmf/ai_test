@@ -41,9 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Hamburger menu functionality
+    // Mobile Navigation
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
@@ -54,6 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         });
     }
 
