@@ -80,6 +80,9 @@ nav {
     align-items: center;
     padding: 15px 0;
     position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
 }
 
 .logo {
