@@ -357,3 +357,91 @@ footer {
 .icon-green {
     color: var(--icon-green); /* Change to green */
 }
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Header/Navigation */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 15px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    /* Card Grid */
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    /* Featured Grid */
+    .featured-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    /* Container */
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    /* Section Headings */
+    .section-heading {
+        font-size: 2rem;
+        padding: 0 15px;
+    }
+
+    /* Cards */
+    .card {
+        margin: 10px 0;
+    }
+
+    /* Featured Items */
+    .featured-item {
+        margin: 10px 0;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+}
