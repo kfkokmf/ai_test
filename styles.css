@@ -86,6 +86,9 @@ nav {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: none !important;
+    transition: none !important;
 }
 
 /* Desktop Navigation */
@@ -490,7 +493,8 @@ footer {
     }
 
     header.expanded .logo {
-        transform: scale(1.1);
+        transform: none !important;
+        font-size: 1.5rem !important;
     }
 }
 
@@ -507,6 +511,7 @@ footer {
     }
 
     .logo {
+        font-size: 1.5rem !important;
         transform: none !important;
     }
 
