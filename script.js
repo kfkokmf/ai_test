@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingScreen = document.getElementById('loading-screen');
     const mainContent = document.getElementById('main-content');
     const header = document.querySelector('header');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
     console.log('Loading Screen:', loadingScreen);
     console.log('Main Content:', mainContent);
@@ -37,6 +39,22 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             console.error('Main content not found');
         }
+    }
+
+    // Hamburger menu functionality
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
     }
 
     window.addEventListener('scroll', handleHeader);
