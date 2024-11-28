@@ -64,7 +64,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Header */
+/* Header base styles */
 header {
     background-color: var(--primary-color);
     position: fixed;
@@ -79,7 +79,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
 }
 
@@ -524,4 +524,46 @@ footer {
     .logo {
         font-size: 1.25rem;
     }
+}
+
+/* Desktop styles (above 1200px) */
+@media screen and (min-width: 1201px) {
+    header.expanded {
+        padding: 10px 0;
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header.expanded .logo {
+        transform: scale(1.1);
+    }
+}
+
+/* Mobile styles (1200px and below) */
+@media screen and (max-width: 1200px) {
+    header {
+        padding: 0;
+        height: auto;
+    }
+
+    nav {
+        padding: 15px 0;
+        height: auto;
+    }
+
+    .logo {
+        transform: none !important;
+    }
+
+    header.expanded {
+        padding: 0 !important;
+        height: auto !important;
+    }
+
+    header.expanded nav {
+        padding: 15px 0 !important;
+        height: auto !important;
+    }
+
+    /* Rest of your mobile styles... */
 }
