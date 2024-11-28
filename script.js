@@ -15,15 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollThreshold = 50;
 
     function handleHeader() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > scrollThreshold) {
-            header.classList.add('expanded');
-        } else {
-            header.classList.remove('expanded');
-        }
+        if (window.innerWidth > 1200) {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > scrollThreshold) {
+                header.classList.add('expanded');
+            } else {
+                header.classList.remove('expanded');
+            }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }
     }
 
     function showContent() {
@@ -67,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', handleHeader);
+    window.addEventListener('resize', handleHeader);
 
-    // Initial check in case the page is loaded scrolled down
+    // Initial check
     handleHeader();
 
     // Show content after 1/4 second
